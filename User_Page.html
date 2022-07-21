@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>SignUp</title>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+var uname="admin";
+var url=location.search;
+if (url.indexOf("?") != -1) {    
+    var str = url.substr(1); 
+    var strNum = str.split("="); 
+    var temp= strNum[1].split("&");
+    uname = temp[0];
+      //alert(strNum[0]);  
+}
+//头
+function Header(props){
+    return (
+        <div class="row mx-auto mt-3 ">
+		    <div class="col-md-2">
+			    <img alt="title" src="title.png" style={titleStyle}/>
+		    </div>
+		    <div class="col-md-7">
+			    <div class="row ml-2 mt-3">
+                    <a href={"Main_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Home
+					    </button>
+				    </div></a>
+				    <a><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Problem
+					    </button>
+				    </div></a>
+				    <a><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Lesson
+					    </button>
+				    </div></a>
+				    <a><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Discussion
+					    </button>
+				    </div></a>
+				    <a><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Mock Interview
+					    </button>
+				    </div></a>
+			    </div>
+		    </div>
+		    <div class="col-md-3">
+			    <h1>
+				    Welcome {uname}
+			    </h1>
+		    </div>
+	    </div>
+    );
+    
+}
+var titleStyle = {
+    width: 250
+};
+//中间页面
+function Body(props){
+    return(
+        <div class="row border border-bottom-0 mt-3">
+		    <div class="col-md-2 border border-bottom-0 border-top-0 border-left-0" style={BodyCenter}>
+                <img class="mt-5" alt="ID" src="ID.jpg" style={{width:200}} />
+                <h4 class="mt-2">User Name: {uname}</h4>
+                <h4>Password: ********</h4>
+                <h6>Email : 123456789@gmail.com</h6>
+                <button type="button" class="btn btn-outline-info mt-3">
+					Edit My Infomation
+				</button>
+		    </div>
+		    <div class="col-md-7 border border-bottom-0 border-top-0 border-left-0">
+                <div class="row">
+                    <h2 class="ml-2">My Submission:</h2>
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Statue</th>
+                            <th>Runtime</th>
+                            <th>Memory</th>
+                            <th>Language</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>2022/06/29 15:51</td>
+                            <td>11.Container With Most Water</td>
+                            <td class="text-success">Accepted</td>
+                            <td>6ms</td>
+                            <td>81.5MB</td>
+                            <td>Java</td>
+                            </tr>
+                            <tr>
+                            <td>2022/06/29 13:57</td>
+                            <td>11.Container With Most Water</td>
+                            <td class="text-danger">Wrong Answer</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>Java</td>
+                            </tr>
+                            <tr>
+                            <td>2022/06/29 12:21</td>
+                            <td>11.Container With Most Water</td>
+                            <td class="text-danger">Compile Error</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>Java</td>
+                            </tr>
+                            <tr>
+                            <td>2022/06/29 11:31</td>
+                            <td>11.Container With Most Water</td>
+                            <td class="text-danger">Timeout</td>
+                            <td>1000ms</td>
+                            <td>N/A</td>
+                            <td>Java</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <h2 class="ml-2">My Discussion:</h2>
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Views</th>
+                            <th>Reply</th>
+                            <th>Hot</th>
+                            <th>Operation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>2022/06/29 16:51</td>
+                            <td>11.Container With Most Water</td>
+                            <td>203</td>
+                            <td>3(1)</td>
+                            <td class="text-muted">215</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                                        Operation
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Delete</a>
+                                        <a class="dropdown-item" href="#">Edit</a>
+                                        <a class="dropdown-item" href="#">Hide</a>
+                                    </div>
+                                </div>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>2022/06/29 18:51</td>
+                            <td>11.Container With Most Water</td>
+                            <td>1.5k</td>
+                            <td>354</td>
+                            <td class="text-warning">2k</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                                        Operation
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Delete</a>
+                                        <a class="dropdown-item" href="#">Edit</a>
+                                        <a class="dropdown-item" href="#">Hide</a>
+                                    </div>
+                                </div>
+                            </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <h2 class="ml-2">My Lecture:</h2>
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                            <th>Start Date</th>
+                            <th>Title</th>
+                            <th>Statue</th>
+                            <th>Score</th>
+                            <th>operation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>2022/06/25</td>
+                            <td>System Design</td>
+                            <td class="text-success">100% complete</td>
+                            <td class="text-success">84</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                                        Operation
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Drop</a>
+                                        <a class="dropdown-item" href="#">Retake</a>
+                                        <a class="dropdown-item" href="#">View Detail</a>
+                                    </div>
+                                </div>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>2022/06/25</td>
+                            <td>Graph</td>
+                            <td class="text-info">89% complete</td>
+                            <td class="text-warning">69</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                                        Operation
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Drop</a>
+                                        <a class="dropdown-item" href="#">Retake</a>
+                                        <a class="dropdown-item" href="#">View Detail</a>
+                                    </div>
+                                </div>
+                            </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h2 class="ml-2">My Wrong Question:</h2>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="alert alert-info">
+                                <strong>Submission:</strong> 379 <br/>
+                                <strong>Wrong Answer: </strong> 153
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Statue</th>
+                            <th>Runtime</th>
+                            <th>Memory</th>
+                            <th>Language</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>2022/06/29 15:51</td>
+                            <td>11.Container With Most Water</td>
+                            <td class="text-danger">Wrong Answer</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>Java</td>
+                            </tr>
+                            <tr>
+                            <td>2022/06/29 13:57</td>
+                            <td>131.Largest Number	</td>
+                            <td class="text-danger">Wrong Answer</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>Java</td>
+                            </tr>
+                            <tr>
+                            <td>2022/06/29 12:21</td>
+                            <td>15.Minimum Number of Arrows to Burst Balloons</td>
+                            <td class="text-danger">Compile Error</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>Java</td>
+                            </tr>
+                            <tr>
+                            <td>2022/06/29 11:31</td>
+                            <td>67.3Sum</td>
+                            <td class="text-danger">Timeout</td>
+                            <td>1000ms</td>
+                            <td>N/A</td>
+                            <td>Java</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+		    </div>
+		    <div class="col-md-3 mt-3" style={BodyCenter}>
+                <div class="alert alert-info alert-dismissible">
+                    <div class="row">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>UpComing Event:</strong>
+                    </div>
+                    <h4>Weekly Contest 30</h4>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p>Sunday, July 3<br/>2:30-4:00AM UTC</p>
+                        </div>
+                        <div class="col-md-4">
+                            <img alt="cup" src="trophy.png" style={{width:80}} />
+                        </div>
+                    </div>
+                    <button type="button" class="btn-outline-info" >Exercise Now</button>
+                </div>
+                <div class="alert alert-warning alert-dismissible">
+                    <div class="row">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Need Help?</strong>
+                    </div>
+                    <h4>Ask Professional Expert</h4>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p>8:00Am - 9:30PM<br/>All Kinds of Problems</p>
+                        </div>
+                        <div class="col-md-4">
+                            <img alt="expert" src="expert.png" style={{width:80}} />
+                        </div>
+                    </div>
+                    <button type="button" class="btn-outline-info" >Ask Question</button>
+                </div>
+		    </div>
+	    </div>
+    );
+}
+var BodyCenter = {
+    textAlign : 'center'
+};
+//页尾
+function Footer(props){
+    return(
+        <div class="row">
+            <div class="col-md-12 bg-dark text-white">
+                <h6 class="text-center mt-2">
+                    Contact Us: scai064@uottawa.ca | 613-252-3763
+                </h6>
+                <h6 class="text-center">
+                    Address: 75 Laurier Ave. E, Ottawa, ON K1N 6N5 (From 8AM to 6PM)
+                </h6>
+
+            </div>
+        </div>
+
+    );
+}
+function Main(props){
+    return(
+        <div>
+            <Header />
+            <Body />
+            <Footer />
+        </div>
+        
+    )
+}
+ReactDOM.render(
+    <Main />,
+    document.getElementById('example')
+);
+</script>
+
+</body>
+</html>
